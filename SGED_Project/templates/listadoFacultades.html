@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultades</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {background-color: rgb(112, 163, 252);}
+    </style>
+</head>
+
+<body>
+    <a class="btn btn-primary" role="button" href="Registro-Facultad/">Agregar</a>
+
+    <div style="
+                    display:flex; align-items:center; justify-content:center;
+                    width: 50%;
+                    padding: 20px;
+                    border: 5px solid gray;
+                    margin: auto;
+                  ">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Facultad</th>
+                <th>Estudiantes</th>
+                <th>Universidad</th>
+                <th>Año</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in lista_facultades %}
+            <tr>
+                <td>{{f.nombre_facultad}}</td>
+                <td>{{f.cantidad_estudiantes}}</td>
+                <td>{{f.nombre_universidad}}</td>
+                <td>{{f.anio_informacion}}</td>
+                <td><td><a class="btn btn-danger" href="/eliminar-facultad/{{ f.id_facultad }}">Eliminar</a></td></td></td>
+                <td><a class="btn btn-secondary" href="/Listar-Facultades/Modificar-Facultad/{{ f.id_facultad }}">Modificar</a>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+        
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}
