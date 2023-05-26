@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: rgb(112, 163, 252);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont">
+        <nav>
+            <ul class="mcd-menu">
+                <li>
+                    <a href="/datos">
+                        <i class="fa fa-home"></i>
+                        <strong>Datos</strong>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="/graficas">
+                        <i class="fa fa-edit"></i>
+                        <strong>Graficas</strong>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="/fuentes">
+                        <i class="fa fa-globe"></i>
+                        <strong>Fuentes</strong>
+
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div style="
+                    display:flex; align-items:center; justify-content:center;
+                    width: 50%;
+                    padding: 20px;
+                    border: 5px solid gray;
+                    margin: auto;
+                  ">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Facultad</th>
+                    <th>Estudiantes</th>
+                    <th>Universidad</th>
+                    <th>Año</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for f in lista_facultades %}
+                <tr>
+                    <td>{{f.nombre_facultad}}</td>
+                    <td>{{f.cantidad_estudiantes}}</td>
+                    <td>{{f.nombre_universidad}}</td>
+                    <td>{{f.anio_informacion}}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+    <br><br><br>
+    <div style="
+    display:flex; align-items:center; justify-content:center;
+    width: 50%;
+    padding: 20px;
+    border: 5px solid gray;
+    margin: auto;
+  ">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Discapacidad</th>
+                    <th>Cantidad</th>
+                    <th>Facultad</th>
+                    <th>Universidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in discapacidades %}
+                <tr>
+                    <td>{{d.tipo_discapacidad}}</td>
+                    <td>{{d.cantidad_discapacitados}}</td>
+                    <td>{{d.facultad}}</td>
+                    <td>{{d.facultad.nombre_universidad}}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <br><br><br><br>
+
+
+</body>
+
+</html>
+
+{% endblock %}

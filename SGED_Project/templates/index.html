@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,16 +17,32 @@
 <body>
 
     <div style="
-                    display:flex; align-items:center; justify-content:center;
+                     align-items:center; justify-content:center;
                     width: 50%;
                     padding: 20px;
                     border: 5px solid gray;
                     margin: auto;
                   ">
 
-        <h1>Pag principal</h1>
-        </form>
+        <div>Los estudiantes discapacitados pueden enfrentar muchas barreras para acceder a la
+            educación superior. A menudo, las universidades no están equipadas para satisfacer las
+            necesidades especiales de estos estudiantes, lo que puede dificultar su acceso a la
+            educación superior. Además, los estudiantes discapacitados pueden tener dificultades para
+            encontrar información sobre las opciones de educación superior que están disponibles para
+            ellos en El Salvador.</div> <br><br>
+        <div>El SGED puede incluir varias funciones importantes, como la captura y almacenamiento de
+            datos de los estudiantes discapacitados por facultad en cada universidad, la visualización
+            de las fuentes verídicas usadas como base para la recopilación de la información y la
+            generación de gráficos y estadísticas analizadas para ayudar a los estudiantes a tomar
+            mejores decisiones de su posible futuro académico en educación superior.
+            Esta herramienta será muy valiosa para mejorar la calidad de la educación para estos
+            estudiantes al proporcionar una forma efectiva de recopilar, almacenar, analizar y presentar
+            información relevante sobre la accesibilidad a educación superior en El Salvador.</div>
     </div>
+
+        <center><img src="{% static 'disc.png' %}" alt="IMAGEN"></center>
+
+
 
 </body>
 

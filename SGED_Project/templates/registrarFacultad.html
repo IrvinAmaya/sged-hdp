@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block navbar %}
+{{ block.super }}
+{% endblock %}
 {% block content %}
 
 <!DOCTYPE html>
@@ -188,4 +190,8 @@
   </script>
 
 </html>
+{% endblock %}
+
+{% block opcional %}
+    
 {% endblock %}

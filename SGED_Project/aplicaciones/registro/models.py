@@ -12,6 +12,9 @@ class Facultad(models.Model):
     anio_informacion = models.IntegerField(
         validators=[MaxValueValidator(9999)],
     )
+    def __str__(self):
+        return self.nombre_facultad
+    
     
 
 class Discapacidad(models.Model):
@@ -21,4 +24,4 @@ class Discapacidad(models.Model):
     facultad = models.ForeignKey(Facultad, on_delete=models.CASCADE, null=False, blank=False)
 
     def __str__(self):
-        return self.tipo_discapacidad + str(self.cantidad_discapacitados)
+        return self.tipo_discapacidad +'-'+ str(self.cantidad_discapacitados) + str(self.facultad)
