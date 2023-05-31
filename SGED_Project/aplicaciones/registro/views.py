@@ -112,7 +112,7 @@ def get_chart(_request):
 
     chart = {
         'title':{
-            'text':"Facultades"
+            'text':"Estudiantes Discapacitados por Facultad"
         },
         'tooltip': {
             'show': True,
@@ -176,7 +176,7 @@ def get_chart2(_request):
 
     chart2 = {
         'title':{
-            'text':"Universidades"
+            'text':"Estudiantes Discapacitados por Universidad"
         },
         'tooltip': {
             'show': True,
