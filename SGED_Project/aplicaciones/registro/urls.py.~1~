@@ -1,0 +1,12 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.funcion_index),
+
+
+    #path('empleados/persona/',views.persona),
+    #path('empleados/calculadora/',views.calc),
+    #path('empleados/notas/',views.notas),
+
+]

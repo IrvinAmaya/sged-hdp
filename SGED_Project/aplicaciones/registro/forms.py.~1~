@@ -1,0 +1,51 @@
+from django import forms
+from .models import Facultad, Discapacidad
+from django.forms import inlineformset_factory
+
+"""class FacultadForm(forms.ModelForm):
+    discapacidades = forms.ModelMultipleChoiceField(queryset=Discapacidad.objects.all())
+
+    class Meta:
+        model = Facultad
+        #fields = '__all__' para mostrar todos los campos
+
+        fields = [
+            'nombre_facultad',
+            'cantidad_estudiantes',
+            'nombre_universidad',
+            'anio_informacion',
+            'discapacidades',
+            
+        ] #Para elegir que campos se desea mostrar
+
+class DiscapacidadForm(forms.ModelForm):
+
+    class Meta:
+        model = Discapacidad
+        #fields = '__all__' para mostrar todos los campos
+
+        fields = [
+            'tipo_discapacidad',
+            'cantidad_discapacitados',            
+        ] #Para elegir que campos se desea mostrar"""
+
+
+class FacultadForm(forms.ModelForm):
+    class Meta:
+        model = Facultad
+        fields = ['nombre_facultad', 'cantidad_estudiantes', 'nombre_universidad', 'anio_informacion', 'discapacidades']
+        widgets = {
+            'discapacidades': forms.CheckboxSelectMultiple,
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['discapacidades'].queryset = Discapacidad.objects.all()
+
+DiscapacidadFormSet = inlineformset_factory(
+    Facultad,
+    Discapacidad,
+    fields=('tipo_discapacidad', 'cantidad_discapacitados'),
+    extra=1,
+    can_delete=True
+)

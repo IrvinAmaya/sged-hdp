@@ -1,0 +1,6 @@
+from django.contrib import admin
+from .models import Discapacidad,Facultad
+
+# Register your models here.
+"""admin.site.register(Discapacidad)
+admin.site.register(Facultad)"""
