@@ -1,6 +1,6 @@
 const getOptionChart2 = async () => {
     try {
-        const response = await fetch("http://127.0.0.1:8000/get_chart2/");
+        const response = await fetch("https://sg-estudiantes-discapacitados.onrender.com/get_chart2/");
         return await response.json();
     } catch (ex) {
         alert(ex);
